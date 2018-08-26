@@ -66,6 +66,34 @@ public class Graph<E> implements GraphI<E>{
 		
 	}
 	
+	public void DFS_0(int src, boolean[] visited, Stack<Integer> stack) {
+		
+		Stack<Integer> temp = new Stack<>();
+		temp.push(src);
+		
+		boolean[] temp_visited = new boolean[visited.length];
+		
+		while (!temp.isEmpty()) {
+			
+			int current = temp.pop();
+			visited[current] = true;
+			
+			for (int i : adjNode[current]) {
+				if (!visited[i]) {
+					stack.push(i);
+				}
+			}
+			
+			if (visited[current]) {
+				
+			}
+		}
+	}
+	
+	public void TopologicalSort() {
+		
+	}
+	
 	/**
 	 * create graph, hash<Node,HashSet<Node>>
 	 * 

@@ -2,6 +2,10 @@ package z_Algo;
 import graph.*;
 import sorting.*;
 import dijkstra.*;
+
+import java.util.*;
+
+import Chapter4.*;
 public class Test {
 
 	public static void main(String[] args)  {
@@ -79,6 +83,18 @@ public class Test {
 	    g2.addEgde(3, 3);
 		g2.BFS(2);
 		
+//		System.out.println("==== Topological Sort ====");
+//		Graph g3 = new Graph(6);
+//		g3.addEgde(2, 3);
+//		g3.addEgde(3, 1);
+//		g3.addEgde(4, 0);
+//		g3.addEgde(4, 1);
+//		g3.addEgde(5, 0);
+//		g3.addEgde(5, 2);
+//		
+		
+		
+		
 		System.out.println("==== Binary Search ====");
 		BinarySearch bs = new BinarySearch();
 		int res1 = bs.bsNextL(new int[] {0,2,4,5,6,8,10,11,12},3);
@@ -150,7 +166,7 @@ public class Test {
 		
 //		g_.printNode();
 		
-		g_.dijkstra("A", "F");
+		g_.dijkstra("A", "D");
 		
 		System.out.println("==== Longest increasing subsequence ====");
 		LongestIncreasingSeq lis = new LongestIncreasingSeq();
@@ -179,6 +195,64 @@ public class Test {
 		System.out.println("==== Rabin Karp ====");
 		StringMatch_RK rk = new StringMatch_RK();
 		rk.RabinKarp("geeksforgeeks", "geekl");
+		
+		System.out.println("==== Max without adjacent ====");
+		MaxNoAdjacent mna = new MaxNoAdjacent();
+		mna.maxNoAdjacent(new int[] {5, 5, 10, 100, 10, 5});
+		
+		System.out.println("==== Segment Tree ====");
+		int[] input = new int[] {-1,2,4,0};
+		int length = input.length;
+//		for(int i = 0; i< 100; i++) {
+//			if (length <= pow(2,i))
+//		}
+		
+		System.out.println("==== Chapter 4 ====");
+		BinaryTree bt = new BinaryTree(null);
+		NodeBT n = bt.arrayToBST(new int[] {1, 2, 3,4,5,6,7,8},0,7);
+		n.preorder(n);
+		System.out.println();
+		n.inorder(n);
+		
+		System.out.println();
+		NodeBT node1 = new NodeBT(2);
+		node1.insertion(node1,1);
+		node1.insertion(node1,3);
+		node1.insertion(node1,4);
+		
+		NodeBT node2 = new NodeBT(2);
+		node2.right = new NodeBT(1);
+		node2.left = new NodeBT(3);
+		
+				
+		System.out.println(node1.isBalance(node1));
+		
+		LinkedList<Integer> ListLinked = new LinkedList<Integer>();
+		
+		System.out.println(n.isBST(n));
+		
+		System.out.println(n.isBST(node2));
+		
+		GraphTopo gTopo = new GraphTopo();
+		gTopo.addNode("A");
+		gTopo.addNode("B");
+		gTopo.addNode("C");
+		gTopo.addNode("D");
+		gTopo.addNode("E");
+		gTopo.addNode("F");
+		gTopo.addNode("G");
+		
+		
+		gTopo.addEdge("A", "E");
+		gTopo.addEdge("B", "A");
+		gTopo.addEdge("B", "E");
+		gTopo.addEdge("C", "A");
+		gTopo.addEdge("D", "G");
+		gTopo.addEdge("F", "A");
+		gTopo.addEdge("F", "B");
+		gTopo.addEdge("F", "C");
+		
+		gTopo.topologicalSort();
 		
 	}
 	

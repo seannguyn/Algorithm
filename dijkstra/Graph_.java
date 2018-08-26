@@ -19,6 +19,7 @@ public class Graph_ {
 	 * 
 	 * foreach node in the hashset, recalculate the distance
 	 * 
+	 * make sure you dont add duplicates node to the priority queue
 	 * 
 	 */
 	
@@ -73,7 +74,7 @@ public class Graph_ {
 		PriorityQueue<State_> pq = new PriorityQueue<>();
 		State_ s1 = new State_(source,0);
 		pq.add(s1);
-		
+		State_ finalState = null;
 		while (!pq.isEmpty()) {
 			
 			State_ s = pq.peek();
@@ -83,9 +84,10 @@ public class Graph_ {
 			Node_ current = s.getNode();
 			int currentDist = s.cost;
 			
-			visited.put(current, true);
+			
 			
 			if (current.port.equals(dst)) {
+				finalState = s;
 				break;
 			}
 
@@ -96,20 +98,44 @@ public class Graph_ {
 				
 				if ( s.cost + ed.cost < distance ) {
 					distance = s.cost + ed.cost;
+					
 					dist.put(ed.to,distance);
+					
+					if (ed.to.port.equals("D")) {
+						System.out.println("COST to D: "+distance);
+					}
+					
+					// YOU FORGOT to reorder the queue when doing an update
+					for (State_ st : pq) {
+						if (st.node.equals(ed.to)) {
+							pq.remove(st);
+							st.cost = distance;
+							pq.add(st);
+							break;
+						}
+					}
 				}
 				
 				if (visited.get(ed.to) == false) {
+					
+					if (ed.to.port.equals("D")) {
+						System.out.println("add to D: "+distance);
+					}
+					
 					State_ newState = new State_(ed.to,distance);
 					pq.add(newState);
+					visited.put(ed.to, true);
 				}
 				
 			}
 			
 			
 		}
-		System.out.println("Node dest: "+dst);
-		System.out.println("cost dest: "+dist.get(dest));
+		
+		System.out.println("Node dest: "+finalState.node.port);
+		System.out.println("cost dest: "+finalState.cost);
+		
+		
 	}
 	
 }
