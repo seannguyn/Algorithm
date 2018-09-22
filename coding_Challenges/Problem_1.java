@@ -6,6 +6,10 @@ import java.util.*;
  * Given an array of integer, count the number of occurrences of each element
  */
 
+/*
+ * initialize a hashmap, then count the occurrence in O(n)
+ */
+
 public class Problem_1 {
 	
 	
