@@ -42,11 +42,12 @@ public class Problem_3 {
 						table.put(array[i], oldList);
 					}
 					
-				} else {
-					List<Integer> it = new ArrayList<>();
-					it.add(array[i]);
-					table.put(this.array[i], it);
 				}
+//				else {
+//					List<Integer> it = new ArrayList<>();
+//					it.add(array[i]);
+//					table.put(this.array[i], it);
+//				}
 			}
 			
 		}

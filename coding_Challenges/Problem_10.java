@@ -5,6 +5,7 @@ public class Problem_10 {
 	/*
 	 * Implementation of binary Heap
 	 * 
+	 * https://www.youtube.com/watch?v=W81Qzuz4qH0&t=399s
 	 */
 	
 	BinaryHeap bh;
@@ -84,10 +85,9 @@ public class Problem_10 {
 		public void siftDown() {
 			
 			int current = 0;
-			int limit = (heapSize - 1) / 2;
 			int update;
 			
-			while (current <= limit) {
+			while (current <= heapSize) {
 				
 				int left 	= ( current * 2 ) + 1;
 				int right 	= ( current * 2 ) + 2;
@@ -132,5 +132,8 @@ public class Problem_10 {
 		System.out.println(p10.bh.remove());
 		System.out.println(p10.bh.remove());
 		System.out.println(p10.bh.remove());
+		System.out.println("====");
+		p10.bh.printHeap();
+		
 	}
 }
