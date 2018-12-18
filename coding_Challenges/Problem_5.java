@@ -30,7 +30,7 @@ public class Problem_5 {
 	public static void main(String args[]) {
 		
 		int rules[] = {1,2};
-		int stairs = 4;
+		int stairs = 3;
 		
 		Problem_5 p5 = new Problem_5();
 		

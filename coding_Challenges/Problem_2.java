@@ -64,14 +64,12 @@ public class Problem_2 {
 			for(String s : bruh) {
 				Node n = new Node(s);
 				this.nodeList.put(s,n);
-				System.out.println("NODE: "+this.nodeList.get(s));
 			}
 		}
 		
 		public void addEdge(String from, String to, int weight) {
 			Node nodeFrom = (Node) this.nodeList.get(from);
 			Node nodeTo = (Node) this.nodeList.get(to);
-			System.out.println("NODE: "+nodeFrom.name);
 			nodeFrom.addEdge(nodeTo,weight);
 			nodeTo.addEdge(nodeFrom,weight);
 		}
@@ -93,7 +91,6 @@ public class Problem_2 {
 			
 			// add source to pq,
 			Node n = 	(Node) this.nodeList.get(src);
-			System.out.println("SUP + "+n);
 			pq.add(new State (n,0));
 			
 			//  dist to source is 0
@@ -109,7 +106,6 @@ public class Problem_2 {
 				
 				while (it_.hasNext()) {
 			        Map.Entry pair = (Map.Entry)it_.next();
-			        System.out.println("SUPPP: "+((Node)pair.getKey()).name);
 			        int cost = (int) dist.get( ((Node)pair.getKey()).name );
 			        int from_ = (int) dist.get( curr.name );
 			        int edge_ = (int) pair.getValue();
@@ -146,7 +142,7 @@ public class Problem_2 {
 	}
 	
 	public static void main(String args[]) {
-		System.out.println("starting..");
+		
 		Problem_2 p2 = new Problem_2();
 		
 		p2.g.addEdge("A", "B", 4);
